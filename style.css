@@ -1,0 +1,587 @@
+/* Plik: style.css */
+
+/* 4. PALETA KOLORÓW */
+:root {
+  --color-white: #ffffff; /* Biel, tło główne */
+  --color-beige: #f5f1e8; /* Beż, sekcje alternatywne, stopka */
+  --color-gold: #d4af37; /* Złoty, przyciski CTA, linki, akcenty */
+  --color-sage: #bcd4a7; /* Szałwia, hover efekty, dekoracje */
+  --color-dark-grey: #333333; /* Ciemnoszary, tekst główny */
+  --color-light-grey: #666666; /* Tekst pomocniczy */
+
+  /* 5. TYPOGRAFIA - Rozmiary */
+  --font-size-h1: 48px;
+  --font-size-h2: 36px;
+  --font-size-h3: 24px;
+  --font-size-p: 16px;
+  --font-size-small: 14px;
+}
+
+/* GLOBALNE RESETY I ZASADY */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif; /* Tekst główny: bezszeryfowy */
+  color: var(--color-dark-grey);
+  line-height: 1.6;
+  background-color: var(--color-white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.beige-background {
+  background-color: var(--color-beige);
+}
+
+/* TYPOGRAFIA */
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif; /* Nagłówki: szeryfowy */
+  color: var(--color-dark-grey);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+h2 {
+  font-size: var(--font-size-h2);
+}
+h3 {
+  font-size: var(--font-size-h3);
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: var(--font-size-p);
+  margin-bottom: 20px;
+}
+
+/* LINKI I PRZYCISKI CTA */
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--color-sage);
+}
+
+.cta-button,
+.cta-primary,
+.cta-secondary {
+  display: inline-block;
+  padding: 12px 25px;
+  border: 2px solid var(--color-gold);
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: var(--font-size-p);
+  transition: all 0.3s;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cta-primary {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+.cta-primary:hover {
+  background-color: var(--color-sage);
+  border-color: var(--color-sage);
+  color: var(--color-dark-grey);
+}
+
+.cta-secondary {
+  background-color: transparent;
+  color: var(--color-gold);
+  margin-left: 10px;
+}
+
+.cta-secondary:hover {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+/* 1. NAGŁÓWEK / MENU NAWIGACYJNE */
+#header {
+  background-color: var(--color-white);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+#header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: var(--font-size-h3);
+  color: var(--color-dark-grey);
+  font-weight: 700;
+}
+
+.main-menu ul {
+  list-style: none;
+  display: inline-flex;
+  margin-right: 20px;
+}
+
+.main-menu li {
+  margin: 0 15px;
+}
+
+.main-menu a {
+  color: var(--color-dark-grey);
+  font-weight: 400;
+}
+
+.main-menu a:hover {
+  color: var(--color-gold);
+}
+
+/* 2. HERO (sekcja tytułowa) */
+.section-hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-media-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e0e0e0; /* Placeholder kolor */
+  color: var(--color-dark-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  font-size: 1.5rem;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(
+    --color-white
+  ); /* Zmienić na jaśniejszy kolor, jeśli tło jest ciemne */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content h1 {
+  font-size: 64px; /* Większy H1 dla HERO */
+  color: var(--color-white);
+}
+
+.hero-content .subtitle {
+  font-size: var(--font-size-h3);
+  margin-bottom: 40px;
+  color: var(--color-white);
+}
+
+.hero-content .cta-group {
+  margin-top: 30px;
+}
+
+/* 3. O NAS */
+.onas-grid {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  text-align: left;
+}
+
+.onas-text {
+  flex: 2;
+}
+
+.onas-text h2 {
+  text-align: left;
+}
+
+.onas-photo {
+  flex: 1;
+  min-height: 300px;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-small);
+}
+
+.attributes span {
+  display: inline-block;
+  background-color: var(--color-sage);
+  color: var(--color-dark-grey);
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: var(--font-size-small);
+}
+
+/* 4. NASZE USŁUGI (Oferta) */
+.service-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+
+.card {
+  background-color: var(--color-white);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card-photo {
+  min-height: 200px;
+  background-color: #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.card-features ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.card-features li {
+  font-size: var(--font-size-small);
+  color: var(--color-light-grey);
+}
+
+.card-button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--color-gold);
+  color: var(--color-white);
+  border-radius: 5px;
+}
+
+.card-button:hover {
+  background-color: var(--color-sage);
+  color: var(--color-dark-grey);
+}
+
+/* 5. PORTFOLIO / REALIZACJE */
+.gallery-placeholder {
+  min-height: 400px;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-p);
+}
+
+/* 6. USP (WYRÓŻNIKI / DLACZEGO MY?) */
+.usp-section {
+  background-color: var(--color-white);
+}
+
+.usp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+
+.usp-item .icon {
+  font-size: 40px;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.usp-item h3 {
+  margin-bottom: 5px;
+}
+
+.usp-item p {
+  font-size: var(--font-size-small);
+  color: var(--color-light-grey);
+  margin-bottom: 0;
+}
+
+/* 7. FORMULARZ KONTAKTOWY */
+.form-section {
+  background-color: var(--color-beige);
+}
+
+.contact-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: var(--color-white);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact-form h2 {
+  width: 100%;
+}
+
+.form-group {
+  width: 48%; /* Dwie kolumny */
+  margin-bottom: 20px;
+}
+
+.form-group.full-width {
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: var(--font-size-p);
+  font-family: "Open Sans", sans-serif;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-gold);
+  outline: none;
+}
+
+.required-note {
+  width: 100%;
+  font-size: var(--font-size-small);
+  color: var(--color-gold);
+  text-align: right;
+  margin-top: -15px;
+}
+
+/* Checkboxy usług */
+.service-checkboxes {
+  border: none;
+  padding: 0;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.service-checkboxes legend {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: var(--font-size-p);
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 5px;
+}
+
+.checkbox-group label {
+  display: inline-block;
+  font-weight: 400;
+  margin-right: 15px;
+}
+
+/* RODO */
+.rodo-consent {
+  display: flex;
+  align-items: flex-start;
+  font-size: var(--font-size-small);
+}
+
+.rodo-consent input {
+  margin-top: 4px;
+  margin-right: 8px;
+}
+
+.recaptcha-note {
+  text-align: center;
+  font-size: 11px;
+  color: var(--color-light-grey);
+  margin-bottom: 15px;
+}
+
+.contact-form button[type="submit"] {
+  width: 100%;
+  border: none;
+}
+
+/* 8. STOPKA */
+#footer {
+  padding: 40px 0;
+  color: var(--color-dark-grey);
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+#footer h3 {
+  text-align: left;
+  font-size: var(--font-size-p);
+  margin-bottom: 15px;
+  color: var(--color-dark-grey);
+}
+
+#footer p,
+#footer a {
+  font-size: var(--font-size-small);
+  color: var(--color-dark-grey);
+  margin-bottom: 5px;
+  display: block;
+}
+
+.social-media {
+  text-align: center;
+}
+
+.social-icon {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  background-color: var(--color-gold);
+  color: var(--color-white);
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 5px 10px;
+  font-weight: 700;
+}
+
+.social-icon:hover {
+  background-color: var(--color-sage);
+  color: var(--color-dark-grey);
+}
+
+.legal {
+  text-align: right;
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 992px) {
+  .service-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .usp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-h1: 40px;
+    --font-size-h2: 30px;
+  }
+
+  #header .container {
+    flex-direction: column;
+  }
+
+  .main-menu ul {
+    margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-menu li {
+    margin: 5px 10px;
+  }
+
+  .cta-button {
+    display: none; /* Ukrycie dodatkowego CTA na małych ekranach */
+  }
+
+  .onas-grid {
+    flex-direction: column;
+  }
+
+  .form-group {
+    width: 100%; /* Jedna kolumna na mobile */
+  }
+
+  .footer-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-grid .col {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  #footer h3 {
+    text-align: center;
+  }
+
+  .legal {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 32px;
+  }
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .cta-secondary {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .usp-grid {
+    grid-template-columns: 1fr;
+  }
+}
