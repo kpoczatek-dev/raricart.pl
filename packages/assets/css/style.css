@@ -395,4 +395,68 @@ footer {
 @media (max-width: 480px) {
     .brand-logo { max-width: 220px; }
     .section-title { font-size: 1.5rem; }
+    .pdf-grid { grid-template-columns: 1fr; }
+}
+
+/* PDF GALLERY GRID */
+.pdf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.pdf-full-width {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .pdf-full-width {
+        grid-template-columns: 1fr;
+    }
+}
+
+.pdf-container {
+    background: transparent;
+    border-radius: var(--radius-ui);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-premium);
+    transition: transform 0.3s ease;
+    min-height: 200px; /* Placeholder height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-glass);
+}
+
+.pdf-container canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.pdf-loading {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 20px;
+    text-align: center;
+}
+
+.pdf-error {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    padding: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .pdf-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 20px;
+    }
 }
