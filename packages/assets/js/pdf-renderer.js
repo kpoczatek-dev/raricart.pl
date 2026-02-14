@@ -16,7 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Fetch the first page
             pdf.getPage(1).then(page => {
                 const scale = 1.5; // High quality scale
-                const viewport = page.getViewport({ scale: scale });
+                // Check if rotation is needed
+                const rotation = container.dataset.rotation ? parseInt(container.dataset.rotation) : 0;
+                
+                const viewport = page.getViewport({ 
+                    scale: scale, 
+                    rotation: rotation 
+                });
 
                 const canvas = document.createElement('canvas');
                 const context = canvas.getContext('2d');
