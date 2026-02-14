@@ -15,9 +15,27 @@ document.addEventListener('DOMContentLoaded', () => {
         loadingTask.promise.then(pdf => {
             // Fetch the first page
             pdf.getPage(1).then(page => {
-                const scale = 1.5; // High quality scale
-                // Check if rotation is needed
-                const rotation = container.dataset.rotation ? parseInt(container.dataset.rotation) : 0;
+                let rotation = container.dataset.rotation 
+                    ? parseInt(container.dataset.rotation) 
+                    : page.rotate;
+
+                // 1. Sprawdzamy orientację
+                let baseViewport = page.getViewport({ 
+                    scale: 1, 
+                    rotation: rotation 
+                });
+
+                // 2. Wymuszamy pion (jeśli leży -> obróć o 90 stopni)
+                if (baseViewport.width > baseViewport.height) {
+                    rotation = (rotation + 90) % 360;
+                    baseViewport = page.getViewport({ 
+                        scale: 1, 
+                        rotation: rotation 
+                    });
+                }
+
+                const containerWidth = container.clientWidth;
+                const scale = containerWidth / baseViewport.width;
                 
                 const viewport = page.getViewport({ 
                     scale: scale, 

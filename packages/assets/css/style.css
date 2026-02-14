@@ -427,17 +427,13 @@ footer {
 }
 
 .pdf-container {
-    background: transparent;
-    border-radius: var(--radius-ui);
-    overflow: hidden;
     position: relative;
     box-shadow: var(--shadow-premium);
-    transition: transform 0.3s ease;
-    min-height: 200px; /* Placeholder height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: var(--radius-ui);
+    overflow: hidden;
     background: var(--bg-glass);
+    transition: transform 0.3s ease;
+    min-height: auto;
 }
 
 .pdf-container canvas {
