@@ -281,15 +281,46 @@
         </main>
 
         <footer>
-            <a href="https://raricart.pl/#kontakt" class="cta-btn">ZAPYTAJ O WYCENĘ</a>
+            <a href="https://raricart.pl/?goto=kontakt" class="cta-btn">ZAPYTAJ O WYCENĘ</a>
             <p style="margin-top: 20px; font-size: 0.7rem; color: var(--text-muted);">raricart.pl • Live Food
                 Station
             </p>
         </footer>
     </div>
 
+    <!-- Floating CTA -->
+    <a href="https://raricart.pl/?goto=kontakt" class="floating-cta" id="floatingCta" aria-label="Zapytaj o wycenę">
+        <span class="floating-cta-icon">✉</span>
+        <span class="floating-cta-text">Zapytaj o wycenę</span>
+    </a>
+
     <script src="assets/js/lib/pdf.min.js"></script>
     <script src="assets/js/pdf-renderer.js"></script>
+
+    <script>
+        // Show floating CTA after scrolling 300px
+        const floatingCta = document.getElementById('floatingCta');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            if (y > 300) {
+                floatingCta.classList.add('visible');
+            } else {
+                floatingCta.classList.remove('visible');
+            }
+
+            // Hide when near footer (static CTA visible)
+            const footer = document.querySelector('footer');
+            if (footer) {
+                const footerTop = footer.getBoundingClientRect().top;
+                if (footerTop < window.innerHeight) {
+                    floatingCta.classList.remove('visible');
+                }
+            }
+            lastScroll = y;
+        });
+    </script>
 </body>
 
 </html>
