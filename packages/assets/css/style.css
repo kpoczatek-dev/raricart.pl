@@ -697,9 +697,15 @@ footer {
 	line-height: 1;
 }
 
-.floating-cta-text {
+/* New responsive text classes */
+.cta-text-desktop {
+	display: inline;
 	text-transform: uppercase;
 	font-size: 0.85rem;
+}
+
+.cta-text-mobile {
+	display: none;
 }
 
 /* Subtle pulse to grab attention */
@@ -723,11 +729,25 @@ footer {
 
 @media (max-width: 480px) {
 	.floating-cta {
-		padding: 14px;
+		padding: 12px 20px;
 		bottom: 20px;
 		right: 20px;
+		/* Pill shape maintained by border-radius: 50px inherited */
 	}
-	.floating-cta-text {
-		display: none; /* Icon only on small screens */
+
+	.cta-text-desktop {
+		display: none;
+	}
+
+	.cta-text-mobile {
+		display: inline;
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 0.8rem;
+		letter-spacing: 1px;
+	}
+
+	.floating-cta-icon {
+		font-size: 1.1rem;
 	}
 }
