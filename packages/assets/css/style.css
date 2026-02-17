@@ -524,6 +524,94 @@ footer {
 	}
 }
 
+/* --- Split Cards Stack (vertical stack of split-cards) --- */
+.split-cards-stack {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	margin-bottom: 60px;
+}
+
+/* --- Split Cards Row (full-width container for split-cards) --- */
+.split-cards-row {
+	grid-column: 1 / -1;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+}
+
+/* --- Split Card (image + text side by side) --- */
+.split-card {
+	display: grid;
+	grid-template-columns: 45% 55%;
+	border-radius: var(--radius-ui);
+	overflow: hidden;
+	box-shadow: var(--shadow-premium);
+	background: #c5cfc0;
+}
+
+.split-card-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.split-card-text {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.5rem;
+}
+
+.split-card-text-inner {
+	background: rgba(255, 255, 255, 0.85);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	padding: 2rem 1.5rem;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.split-card-text-content {
+	text-align: center;
+	font-family: var(--font-heading);
+	font-style: italic;
+	color: var(--color-text-dark);
+	font-size: 1.1rem;
+	line-height: 1.7;
+}
+
+.split-card-text-content p {
+	margin-bottom: 1.2em;
+}
+
+.split-card-text-content p:last-child {
+	margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+	.split-card {
+		grid-template-columns: 1fr;
+	}
+	.split-card-image {
+		aspect-ratio: 4 / 3;
+	}
+	.split-card-text {
+		padding: 1.2rem;
+	}
+	.split-card-text-inner {
+		padding: 1.5rem 1.2rem;
+	}
+	.split-card-text-content {
+		font-size: 1rem;
+		line-height: 1.6;
+	}
+}
+
 .pdf-loading {
 	color: var(--accent);
 	font-weight: 700;
