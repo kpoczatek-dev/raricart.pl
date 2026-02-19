@@ -1,3 +1,23 @@
+<?php
+// Detect protocol and main domain for CSS/Assets linking on subdomain
+$protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://";
+$host = $_SERVER['HTTP_HOST'];
+
+// Logic compatible with navbar.php
+if (strpos($host, 'pakiety.') !== false) {
+    // We are on packages subdomain
+    $main_host = str_replace('pakiety.', '', $host);
+    $site_url = $protocol . $main_host; // e.g. https://test.raricart.pl
+} else {
+    // Fallback or main domain (e.g. accessing packages/index.php directly)
+    $site_url = ''; // Relative path base? No, better use root-relative if on main domain
+    // If on main domain, /site/assets is correct from root.
+    // If we are in packages/ directory on main domain, /site/assets is also correct.
+    $site_url = ''; 
+}
+// Assets Base URL
+$assets_base = $site_url . '/site/assets'; 
+?>
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -12,10 +32,10 @@
         href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Comfortaa:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
         rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/site/assets/images/logo_optimized.png">
+    <link rel="icon" type="image/png" href="<?php echo $assets_base; ?>/images/logo_optimized.png">
     
     <!-- Main CSS (for Navbar & Global Styles) -->
-    <link rel="stylesheet" href="/site/assets/css/styles.css">
+    <link rel="stylesheet" href="<?php echo $assets_base; ?>/css/styles.css">
     <!-- Packages specific CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     
