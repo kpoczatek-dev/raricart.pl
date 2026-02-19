@@ -58,8 +58,8 @@ $assets_base = $site_url . '/site/assets';
 </head>
 
 <body>
-    <!-- Navbar Integration -->
-    <?php include '../site/parts/navbar.php'; ?>
+    <!-- Navbar Integration (Local, separated from site/) -->
+    <?php include 'parts/navbar.php'; ?>
 
     <div class="bg-decoration dec-1"></div>
     <div class="bg-decoration dec-2"></div>
