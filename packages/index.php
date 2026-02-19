@@ -44,16 +44,42 @@ $assets_base = $site_url . '/site/assets';
         body {
             padding-top: 0; /* Navbar is fixed/overlay */
         }
-        /* Ensure navbar background is visible since we don't have a hero video here */
-        .nav-bg {
-            /* background: rgba(20, 20, 20, 0.95) !important; REMOVED - use default styles */
-            /* backdrop-filter: handled by css */
-        }
         
         main {
             padding-top: 90px; /* Space for fixed navbar (approx 80px + 10px buffer) */
         }
 
+        /* FORCE NAVBAR VISIBILITY */
+        #main-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 10000 !important;
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        #nav, .hero-logo, .hamburger {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            display: block !important; /* Ensure they are not hidden */
+        }
+        
+        /* Ensure logo is visible */
+        .hero-logo img {
+             visibility: visible !important; 
+             opacity: 1 !important;
+        }
+
+        /* Nav background explicit color just in case */
+        .nav-bg {
+             background: rgba(20, 20, 20, 0.95);
+             backdrop-filter: blur(10px);
+             -webkit-backdrop-filter: blur(10px);
+        }
     </style>
 </head>
 
@@ -84,7 +110,7 @@ $assets_base = $site_url . '/site/assets';
 
     <!-- Header Container -->
     <header id="main-header">
-        <div class="nav-bg" id="navBg"></div>
+        
         
         <!-- Branding & Nav (Hidden on subpages) -->
         <h1 class="new-brand" id="brandText1" data-i18n="hero.title1" style="display: none !important;">TAM, GDZIE SMAK SPOTYKA EMOCJE, A PROSTOTA STAJE
@@ -568,8 +594,8 @@ $assets_base = $site_url . '/site/assets';
         });
     </script>
     
-    <!-- Global Script -->
-    <script src="/site/assets/js/script.js"></script>
+    <!-- Global Script (Absolute URL fix) -->
+    <script src="<?php echo $assets_base; ?>/js/script.js"></script>
 </body>
 
 </html>
